@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sonal Vyas Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: #fafafa;">
+<header>
+    <div class="container">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo">Sonal Vyas</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+    <h2> AI-Driven Advertising Optimization Platform </h2>
+    <p>Revolutionizing digital advertising through intelligent automation and real-time campaign optimization.</p>
+</section>
+
+<!-- Project Overview Section -->
+<section id="overview">
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p> In this project, I architected and developed an AI-driven advertising optimization platform that leverages autonomous agents to automatically fine-tune advertising campaigns across multiple platforms including Facebook, Instagram, and Google Search. The system integrates a sophisticated front-end web portal with powerful backend APIs and intelligent AI agents that continuously monitor campaign performance and optimize targeting, bidding, and content delivery to achieve desired business outcomes. This platform represents a cutting-edge approach to programmatic advertising, combining machine learning, real-time data analytics, and automated decision-making to maximize ROI and campaign effectiveness.
+            </p>
+    </div>
+</section> 
+ 
+<!-- Project Design Section -->
+<section id="overview">
+    <div class="container-center-aligned">
+        <h2>System Architecture</h2>
+            </p>
+            <div class="project-img" style="align-self: center; background-image: url('images/AI-Driven-Advertising-Design-1.png'); width: 500px; height: 300px; background-color: #f0f8ff; border: 2px solid #ddd;"></div>
+            <p style="text-align: center; margin-top: 15px; font-style: italic; color: #666;">AI-Driven Advertising Platform Architecture</p>
+    </div>
+</section>
+
+<!-- Technologies Used Section -->
+<section id="technologies">
+    <div class="container">
+        <h2>Technologies Used</h2>
+        <div class="card" style="height: 400px;">
+            <span class="title">Core Technologies</span>
+            <div class="card__tags">
+                <ul class="tag">
+                    <li class="tag__name">React</li>
+                    <li class="tag__name">TypeScript</li>
+                    <li class="tag__name">Java</li>
+                    <li class="tag__name">Python</li>
+                    <li class="tag__name">Spring Boot</li>
+                    <li class="tag__name">MongoDB</li>
+                    <li class="tag__name">TensorFlow</li>
+                    <li class="tag__name">Apache Kafka</li>
+                    <li class="tag__name">Redis</li>
+                    <li class="tag__name">Docker</li>
+                    <li class="tag__name">Kubernetes</li>
+                    <li class="tag__name">MLflow</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Features Section -->
+<section id="features">
+    <div class="container">
+        <h2>Key Features & Components</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px;">
+            <div>
+                <h3 style="color: #3498db; margin-bottom: 15px;">🖥️ Web Portal Dashboard</h3>
+                <p>Intuitive React-based interface for campaign creation, configuration, and monitoring across Facebook, Instagram, and Google Search platforms. Features real-time analytics, drag-and-drop campaign builders, and customizable performance dashboards.</p>
+            </div>
+            <div>
+                <h3 style="color: #3498db; margin-bottom: 15px;">🤖 AI Optimization Agents</h3>
+                <p>Autonomous ML agents built with TensorFlow that continuously analyze campaign performance, automatically adjust bidding strategies, optimize audience targeting, and fine-tune ad content to maximize conversion rates and ROI.</p>
+            </div>
+            <div>
+                <h3 style="color: #3498db; margin-bottom: 15px;">⚡ Real-time API Services</h3>
+                <p>Scalable microservices architecture using Java Spring Boot and Python FastAPI for handling campaign management, data ingestion, ML model serving, and integration with advertising platform APIs.</p>
+            </div>
+            <div>
+                <h3 style="color: #3498db; margin-bottom: 15px;">📊 Advanced Analytics Engine</h3>
+                <p>MongoDB-powered data warehouse with real-time streaming via Apache Kafka, enabling sophisticated performance tracking, predictive analytics, and automated reporting for data-driven decision making.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Challenges & Solutions Section -->
+<section id="challenges">
+    <div class="container">
+        <h2>Challenges & Solutions</h2>
+        <p>This project addressed complex challenges in building an intelligent advertising optimization platform that required real-time decision making, multi-platform integration, and sophisticated machine learning capabilities.
+            The system needed to process massive volumes of advertising data from multiple sources while making intelligent optimization decisions in milliseconds.
+            <br><br>
+            <strong>Challenge 1: Real-time ML Model Serving:</strong> Deploying and serving machine learning models that could make optimization decisions within the strict latency requirements of live advertising auctions. 
+            <strong>Solution:</strong> Implemented a containerized ML serving architecture using Docker and Kubernetes with model caching via Redis, reducing inference time to under 50ms while handling thousands of concurrent requests.
+            <br><br>
+            <strong>Challenge 2: Multi-Platform API Integration:</strong> Managing disparate advertising platform APIs (Facebook, Google, Instagram) with different rate limits, data formats, and authentication mechanisms. 
+            <strong>Solution:</strong> Developed a unified API gateway using Spring Boot with intelligent request queuing, retry mechanisms, and standardized data transformation layers that abstracted platform differences.
+            <br><br>
+            <strong>Challenge 3: Autonomous Agent Decision Making:</strong> Creating AI agents capable of making complex optimization decisions without human intervention while maintaining campaign objectives and budget constraints. 
+            <strong>Solution:</strong> Implemented reinforcement learning agents using TensorFlow with MLflow for experiment tracking, enabling continuous learning and improvement while maintaining strict guardrails for budget and performance thresholds.
+        </p>
+    </div>
+</section>
+
+<!-- Technical Implementation Section -->
+<section id="implementation">
+    <div class="container">
+        <h2>Technical Implementation</h2>
+        <p>The platform architecture leverages a microservices design pattern with distinct services for campaign management, AI optimization, data processing, and external platform integration. 
+            The frontend React application communicates with backend services through a API gateway that handles authentication, rate limiting, and request routing.
+            <br><br>
+            <strong>AI Agent Framework:</strong> Built custom AI agents using TensorFlow and Python that implement reinforcement learning algorithms for campaign optimization. 
+            Agents continuously learn from campaign performance data, user behavior patterns, and market trends to make autonomous bidding and targeting decisions. 
+            MLflow tracks model performance and enables seamless model versioning and deployment.
+            <br><br>
+            <strong>Data Pipeline:</strong> Apache Kafka streams real-time advertising data from multiple platforms into MongoDB for storage and analysis. 
+            The data pipeline includes transformation services that normalize data formats, detect anomalies, and trigger AI agent actions based on performance thresholds.
+            Redis provides high-speed caching for frequently accessed campaign data and model predictions.
+            <br><br>
+            <strong>Scalable Infrastructure:</strong> Deployed on AWS using Kubernetes for container orchestration, ensuring automatic scaling based on traffic patterns and computational demands. 
+            The system can dynamically allocate resources for ML training, model serving, and data processing based on campaign volume and complexity.
+        </p>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="results">
+    <div class="container">
+        <h2>Results & Impact</h2>
+        <p>The AI-driven advertising optimization platform delivered exceptional results, demonstrating significant improvements in campaign performance and operational efficiency. 
+            The autonomous optimization capabilities reduced manual campaign management time by 75% while achieving better performance outcomes than traditional manual optimization approaches.
+            <br><br>
+            <strong>Performance Improvements:</strong> AI agents achieved an average 40% improvement in conversion rates and 35% reduction in cost-per-acquisition across all managed campaigns. 
+            The platform's real-time optimization capabilities enabled rapid response to market changes, maintaining optimal performance even during volatile advertising periods.
+            <br><br>
+            <strong>Operational Excellence:</strong> The automated campaign management reduced the need for manual intervention by 80%, allowing marketing teams to focus on strategy and creative development rather than tactical optimization. 
+            The unified dashboard provided comprehensive insights across all advertising platforms, improving decision-making and campaign coordination.
+            <br><br>
+            <strong>Scalability Success:</strong> The platform was load tested to successfully manage over 1,000 concurrent campaigns across multiple advertising platforms, processing over 5 million data points daily. 
+            The Kubernetes-based infrastructure automatically scaled to handle peak loads while maintaining less than 300ms response times for all optimization decisions.
+            <br><br>
+            <strong>Business Impact:</strong> Users of the platform can achieve an average 50% increase in return on advertising spend (ROAS) and 60% reduction in campaign setup time. 
+            The platform's predictive analytics capabilities enabled proactive campaign adjustments, preventing budget waste and maximizing opportunity capture during high-conversion periods.
+        </p>
+    </div>
+</section>
+
+</body>
+</html> 
