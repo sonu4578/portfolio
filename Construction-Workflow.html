@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sonal Vyas Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo">Sonal Vyas</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+    <h2>Construction Workflow Platform</h2>
+    <p>An event-driven platform that captures every field-level deviation on construction Material Requisition forms in real time, powering analytics dashboards and immutable audit trails.</p>
+</section>
+
+<!-- Project Overview Section -->
+<section id="overview">
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+            The Construction Workflow Platform is built on an event-driven architecture designed for the construction industry. Field workers fill out Material Requisition forms that are pre-populated with system-generated values drawn from the Bill of Materials, vendor rate cards, and project schedules. Every time a worker deviates from a system recommendation — changing a quantity, swapping a vendor, or adjusting a price — the change is captured as an immutable event and made instantly available for real-time visibility and historical analysis.
+            <br><br>
+            The platform seamlessly switches between a local developer environment (Kafka + kustainer) and a fully cloud-hosted production environment (Azure Event Hubs + Azure Data Explorer) using only environment variable changes, with zero code modifications required.
+        </p>
+    </div>
+</section>
+
+<!-- Key Features Section -->
+<section id="features">
+    <div class="container">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Material Requisition forms pre-filled with BOM quantities, rate-card prices, and preferred vendors</li>
+            <li>Real-time live event feed updated instantly via Server-Sent Events whenever a field is changed</li>
+            <li>Immutable event log stored in both PostgreSQL and Azure Data Explorer</li>
+            <li>Analytics dashboard powered by KQL queries showing material substitution patterns, price deviations, and vendor swap frequency</li>
+            <li>Event streaming via Kafka (locally) and Azure Event Hubs (production) with no code changes required to switch environments</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Architecture Section -->
+<section id="design">
+    <div class="container-center-aligned">
+        <h2>High-Level Architecture</h2>
+        <div class="project-img" style="align-self: center; background-image: url('images/ConstructionWorkflow_Architecture.png'); width: 700px; height: 420px;"></div>
+        <br>
+        <p style="max-width: 700px; text-align: left; margin: 0 auto;">
+            The platform is designed in four layers:
+            <br><br>
+            <strong>Users &amp; Clients</strong> — Field workers and project managers access the platform through a web browser. Field workers submit Material Requisition forms on-site while managers monitor the analytics dashboard.
+            <br><br>
+            <strong>UI Layer</strong> — Built with React and TypeScript. React Hook Form with Zod handles validation. TanStack Query manages data fetching and caching. Server-Sent Events push real-time notifications back to the browser to update the live event feed instantly.
+            <br><br>
+            <strong>API Layer</strong> — Built with NestJS. In a single operation it saves the event to PostgreSQL, updates the form state, publishes to Kafka, writes to Azure Data Explorer, and pushes an SSE notification to the browser.
+            <br><br>
+            <strong>Data &amp; Event Layer</strong> — PostgreSQL stores the current form state and full event history. Kafka / Azure Event Hubs act as the streaming backbone. Azure Data Explorer stores the immutable event log and powers the analytics dashboard via KQL.
+        </p>
+    </div>
+</section>
+
+<!-- Technologies Used Section -->
+<section id="technologies">
+    <div class="container">
+        <h2>Technologies Used</h2>
+        <div class="card">
+            <div class="card__tags">
+                <ul class="tag">
+                    <li class="tag__name">TypeScript</li>
+                    <li class="tag__name">React</li>
+                    <li class="tag__name">NestJS</li>
+                    <li class="tag__name">PostgreSQL</li>
+                    <li class="tag__name">Kafka</li>
+                    <li class="tag__name">Azure Event Hubs</li>
+                    <li class="tag__name">Azure Data Explorer</li>
+                    <li class="tag__name">KQL</li>
+                    <li class="tag__name">Redis</li>
+                    <li class="tag__name">Docker</li>
+                    <li class="tag__name">Zod</li>
+                    <li class="tag__name">TanStack Query</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Challenges & Solutions Section -->
+<section id="challenges">
+    <div class="container">
+        <h2>Challenges &amp; Solutions</h2>
+        <p>
+            One of the core challenges was designing a system that could run identically on a developer laptop and in a cloud production environment without requiring code changes. This was solved by abstracting the event-streaming and analytics-ingest layers behind environment variables — switching from Kafka to Azure Event Hubs and from kustainer to Azure Data Explorer requires only changing <code>KUSTO_INGEST_MODE</code> and connection strings.
+            <br><br>
+            Another challenge was keeping Docker Desktop memory usage manageable while running six infrastructure services simultaneously (Kafka, PostgreSQL, Redis, kustainer, Azurite, Web PubSub). This was addressed by carefully tuning per-container memory limits in <code>docker-compose.yml</code>, keeping total infra usage under ~3 GB.
+            <br><br>
+            Delivering a truly real-time event feed to the browser without resorting to polling required implementing Server-Sent Events through NestJS, which pushes change notifications to the frontend the moment an event is persisted — giving field workers and managers an instant, live view of every form deviation.
+        </p>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="results">
+    <div class="container">
+        <h2>Results</h2>
+        <p>
+            The platform successfully delivers an end-to-end event-driven workflow where every field-level change made by a construction worker is captured, streamed, stored immutably, and made available for analytics — all in real time. The analytics dashboard surfaces actionable patterns such as which materials are most frequently substituted, which vendors are swapped, and where price deviations are concentrated, enabling project managers to make data-driven procurement decisions.
+            <br><br>
+            The environment-parity design means the same monorepo codebase runs in local development and in a fully Azure-hosted production environment with no code modifications, significantly reducing deployment risk and accelerating the path from development to production.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

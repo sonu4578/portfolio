@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sonal Vyas Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo">Sonal Vyas</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+    <h2>Text-to-CAD Model Generator</h2>
+    <p>A Python tool that converts natural language descriptions into 3D CAD models, exporting industry-standard STEP and STL files alongside multi-view visualizations.</p>
+</section>
+
+<!-- Project Overview Section -->
+<section id="overview">
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+            The Text-to-CAD Model Generator bridges natural language and 3D engineering design. A user simply types a description such as <em>"Create a cylinder with radius 4 and height 12"</em> and the tool automatically parses the intent, extracts dimensions, generates a parametric 3D model using CadQuery, and saves the result in both STEP (industry-standard CAD) and STL (3D-printing-ready) formats. A multi-view visualization — isometric, front, side, top, and composite views — is also generated automatically for each model.
+            <br><br>
+            The project demonstrates how natural language processing can be combined with a professional CAD kernel (OpenCASCADE via CadQuery) to lower the barrier to 3D model creation for users who are not familiar with traditional CAD software.
+        </p>
+    </div>
+</section>
+
+<!-- Sample Output Section -->
+<section id="design">
+    <div class="container-center-aligned">
+        <h2>Sample Generated Model</h2>
+        <div class="project-img" style="align-self: center; background-image: url('images/CAD_Model_Sample.png'); width: 600px; height: 400px;"></div>
+        <p style="margin-top: 12px; font-style: italic; color: #888;">Composite multi-view output for a generated toy car model</p>
+    </div>
+</section>
+
+<!-- Supported Shapes Section -->
+<section id="features">
+    <div class="container">
+        <h2>Supported Shapes</h2>
+        <div class="card">
+            <div class="card__tags">
+                <ul class="tag">
+                    <li class="tag__name">Box / Cube</li>
+                    <li class="tag__name">Sphere</li>
+                    <li class="tag__name">Cylinder</li>
+                    <li class="tag__name">Cone</li>
+                    <li class="tag__name">Torus</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <p>Example prompts the tool understands:</p>
+        <ul>
+            <li><em>"Create a box 15 by 10 by 5"</em></li>
+            <li><em>"Make a sphere with radius 7"</em></li>
+            <li><em>"Generate a tube 5 units in radius and 15 units tall"</em></li>
+            <li><em>"Create a torus with major radius 10 and minor radius 2"</em></li>
+        </ul>
+    </div>
+</section>
+
+<!-- Technologies Used Section -->
+<section id="technologies">
+    <div class="container">
+        <h2>Technologies Used</h2>
+        <div class="card">
+            <div class="card__tags">
+                <ul class="tag">
+                    <li class="tag__name">Python</li>
+                    <li class="tag__name">CadQuery</li>
+                    <li class="tag__name">OpenCASCADE (OCP)</li>
+                    <li class="tag__name">matplotlib</li>
+                    <li class="tag__name">NumPy</li>
+                    <li class="tag__name">STEP Export</li>
+                    <li class="tag__name">STL Export</li>
+                    <li class="tag__name">Regex NLP Parsing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Architecture Section -->
+<section id="challenges">
+    <div class="container">
+        <h2>Architecture &amp; Design</h2>
+        <p>
+            The tool is structured around four loosely coupled modules:
+            <br><br>
+            <strong>Parser Module</strong> — Uses regex-based pattern matching to extract the shape type and all relevant dimensions from a free-form text description. It handles multiple dimension formats (e.g. <code>10x8x6</code>, <code>10 by 8 by 6</code>, plain space-separated numbers) and maps natural language keywords (e.g. "ball", "tube", "donut") to canonical shape names.
+            <br><br>
+            <strong>CAD Generator</strong> — Receives the parsed shape type and dimensions and constructs the 3D solid using the CadQuery API, which is built on top of OpenCASCADE — the same CAD kernel used by FreeCAD and other professional tools.
+            <br><br>
+            <strong>Visualizer</strong> — Renders the generated solid from six orthographic and isometric viewpoints using matplotlib's 3D axes, then stitches them into a single composite image for quick review.
+            <br><br>
+            <strong>File Manager</strong> — Saves the model to a timestamped output folder containing the STEP file, STL file, composite visualization PNG, and a JSON metadata file recording the original prompt and parsed parameters.
+        </p>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="results">
+    <div class="container">
+        <h2>Results &amp; Future Enhancements</h2>
+        <p>
+            The tool successfully generates valid, printable 3D models from plain English descriptions across five shape families, producing professional-grade STEP files alongside STL meshes ready for 3D printing. Multi-view visualizations allow users to verify model geometry instantly without opening a CAD application.
+            <br><br>
+            Planned future enhancements include support for complex assemblies and boolean operations (union, difference, intersection), integration with AI language models for richer natural language understanding, a web-based interface, and the ability to import and modify existing CAD files.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
