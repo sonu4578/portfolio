@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="502" height="208" viewBox="0 0 502 208">
+  <rect width="502" height="208" fill="#f0f4f8"/>
+
+  <!-- 3D Isometric cube icon -->
+  <g transform="translate(42, 30)">
+    <!-- Top face -->
+    <polygon points="65,10 120,40 65,70 10,40" fill="#4A90D9" stroke="#2c6fad" stroke-width="1.5"/>
+    <!-- Left face -->
+    <polygon points="10,40 65,70 65,130 10,100" fill="#2c6fad" stroke="#1a4f8a" stroke-width="1.5"/>
+    <!-- Right face -->
+    <polygon points="65,70 120,40 120,100 65,130" fill="#6aaee8" stroke="#2c6fad" stroke-width="1.5"/>
+
+    <!-- Inner smaller cube (highlight) -->
+    <polygon points="65,30 98,47 65,64 32,47" fill="#7ec8f0" opacity="0.5"/>
+    <polygon points="32,47 65,64 65,97 32,80" fill="#4A90D9" opacity="0.4"/>
+    <polygon points="65,64 98,47 98,80 65,97" fill="#a8d8f4" opacity="0.4"/>
+
+    <!-- Text prompt lines beneath cube -->
+    <rect x="10" y="145" width="110" height="6" rx="3" fill="#4A90D9" opacity="0.5"/>
+    <rect x="10" y="157" width="80" height="5" rx="2.5" fill="#4A90D9" opacity="0.3"/>
+  </g>
+
+  <!-- Project name -->
+  <text x="210" y="82" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="26" fill="#2c3e50">Text-to-CAD</text>
+  <text x="210" y="116" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="26" fill="#2c3e50">Model</text>
+  <text x="210" y="148" font-family="Poppins, Arial, sans-serif" font-weight="400" font-size="16" fill="#7f8c8d">Generator</text>
+</svg>
