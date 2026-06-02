@@ -413,7 +413,8 @@ section p {
 
 .card {
     width: 500px;
-    height: 300px;
+    height: auto;
+    min-height: 300px;
     background:  #6ab5f2;
     padding: 20px;
     display: flex;
