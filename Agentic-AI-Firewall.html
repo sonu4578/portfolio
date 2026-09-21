@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sonal Vyas Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="index.html" class="logo-link">
+            <h1 class="logo">Sonal Vyas</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+    <h2>Agentic AI Firewall - Runtime Security for AI Agents</h2>
+    <p>A security layer that sits between an LLM-powered agent and every tool it can call, treating the agent as untrusted by default.</p>
+</section>
+
+<!-- Project Overview Section -->
+<section id="overview">
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+            Autonomous AI agents can read files, run shell commands and write to disk, so a single prompt injection or bad decision can cause real damage. The AI Firewall intercepts every action an agent attempts, evaluates it against a declarative policy, risk-scores it, and then <strong>allows</strong>, <strong>blocks</strong>, <strong>holds</strong> it for human approval, or <strong>redacts</strong> secrets and prompt injections before the agent ever sees them.
+            <br><br>
+            A second, independent interception point, a shell wrapper, enforces the same policy for any process running inside its container, whether that is a third-party coding agent or a human at a terminal. Every decision is written to an audit log and surfaced on a live dashboard and Grafana metrics.
+        </p>
+    </div>
+</section>
+
+<!-- Architecture Section -->
+<section id="design">
+    <div class="container">
+        <h2>Architecture &amp; Design</h2>
+        <p>
+            <strong>FirewalledTool proxy</strong> — The agent only ever holds a reference to a proxy, never to a real tool implementation, which makes agent-side interception unbypassable.
+            <br><br>
+            <strong>Firewall engine</strong> — A hot-reloadable YAML policy engine, a contextual risk scorer whose score can override policy, a prompt injection detector, and a secret scanner that redacts sensitive values.
+            <br><br>
+            <strong>Human approval flow</strong> — HOLD decisions are queued in Redis and pushed over WebSocket to a React dashboard, where a reviewer approves or rejects the action.
+            <br><br>
+            <strong>Shell wrapper</strong> — Replaces <code>/bin/bash</code> in a sandbox container and posts each command to the same policy engine, covering what the proxy structurally cannot, such as a third-party agent's own terminal commands.
+            <br><br>
+            <strong>Observability</strong> — Decisions are stored in a Postgres audit database and exported as Prometheus metrics (decisions, risk scores, latency, redactions, approval queue depth) with an auto-provisioned Grafana dashboard.
+        </p>
+    </div>
+</section>
+
+<!-- Technologies Used Section -->
+<section id="technologies">
+    <div class="container">
+        <h2>Technologies Used</h2>
+        <div class="card">
+            <span class="title">Technologies</span>
+            <div class="card__tags">
+                <ul class="tag">
+                    <li class="tag__name">Python</li>
+                    <li class="tag__name">FastAPI</li>
+                    <li class="tag__name">React</li>
+                    <li class="tag__name">Vite</li>
+                    <li class="tag__name">WebSocket</li>
+                    <li class="tag__name">PostgreSQL</li>
+                    <li class="tag__name">Redis</li>
+                    <li class="tag__name">Prometheus</li>
+                    <li class="tag__name">Grafana</li>
+                    <li class="tag__name">Docker</li>
+                    <li class="tag__name">pytest</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Challenges & Solutions Section -->
+<section id="challenges">
+    <div class="container">
+        <h2>Challenges &amp; Solutions</h2>
+        <p>
+            The main challenge was making enforcement hard to bypass. Rather than trusting the agent to call the firewall, I made the proxy the only handle it has to any tool, and added the shell wrapper as an independent second layer for processes outside the agent. An adversarial test suite tries path traversal, shell metacharacters, embedded prompt injection, approval timeouts, malformed policy rules, the agent modifying its own policy files, and risk escalation under repeated probing, and asserts the firewall holds.
+            <br><br>
+            Another challenge was keeping the demo reproducible. A deterministic stub LLM drives named tool-call sequences, so all six demo scenes (allowed action, blocked action, prompt injection, human approval, shell intercept, secret redaction) run end to end without any API key.
+        </p>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section id="results">
+    <div class="container">
+        <h2>Results &amp; Future Enhancements</h2>
+        <p>
+            The proof of concept was built in ten phases, from infrastructure skeleton through metrics, demo scenarios and overhead measurement. The firewall's own added latency is tracked with a p99 target of under 50ms.
+            <br><br>
+            Planned production extensions include Open Policy Agent in place of the custom YAML evaluator, Docker exec sandboxing for per-call isolation, a network proxy for LLM API traffic, role-based agent identities, OpenTelemetry, a cryptographically signed audit log, and syscall-level interception to cover in-process calls.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

@@ -60,7 +60,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: linear-gradient(to right, #021824, #0d3745);
+    background: linear-gradient(to right, #0f1f3d, #1a3159);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     transition: background-color 0.3s ease;
@@ -120,7 +120,7 @@ nav ul li a:hover {
 Nav Bar: #E5C07B*/
 #hero {
     /*background-color: #e67e22;*/
-    background: linear-gradient(to right, #021f2f, #11485b);
+    background: linear-gradient(to right, #1e3a6e, #2f5f9e);
     padding: 80px 0;
     text-align: center;
     color: white;

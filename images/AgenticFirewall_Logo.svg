@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="502" height="208" viewBox="0 0 502 208">
+  <rect width="502" height="208" fill="#f0f4f8"/>
+  <g transform="translate(42, 30)">
+    <path d="M65 8 L118 28 V78 C118 108 96 130 65 144 C34 130 12 108 12 78 V28 Z" fill="#4A90D9" stroke="#2c6fad" stroke-width="2"/>
+    <path d="M65 24 L102 38 V78 C102 98 88 114 65 126 Z" fill="#6aaee8"/>
+    <path d="M42 76 L60 94 L92 58" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="170" y="92" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="42" fill="#1a4f8a">AI Firewall</text>
+  <text x="170" y="126" font-family="Poppins, Arial, sans-serif" font-size="18" fill="#4A90D9">Guardrails for AI agents</text>
+</svg>
