@@ -2,7 +2,7 @@
   <rect width="502" height="208" fill="#f0f4f8"/>
 
   <!-- 3D Isometric cube icon -->
-  <g transform="translate(42, 30)">
+  <g transform="translate(58, 42) scale(0.86)">
     <!-- Top face -->
     <polygon points="65,10 120,40 65,70 10,40" fill="#4A90D9" stroke="#2c6fad" stroke-width="1.5"/>
     <!-- Left face -->
@@ -21,7 +21,7 @@
   </g>
 
   <!-- Project name -->
-  <text x="210" y="82" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="26" fill="#2c3e50">Text-to-CAD</text>
-  <text x="210" y="116" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="26" fill="#2c3e50">Model</text>
-  <text x="210" y="148" font-family="Poppins, Arial, sans-serif" font-weight="400" font-size="16" fill="#7f8c8d">Generator</text>
+  <text x="210" y="76" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="22" fill="#2c3e50">Text-to-CAD Model</text>
+  <text x="210" y="106" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="22" fill="#2c3e50">Generator</text>
+  <text x="210" y="138" font-family="Poppins, Arial, sans-serif" font-weight="400" font-size="18" fill="#4A90D9">Natural language to 3D</text>
 </svg>

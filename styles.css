@@ -307,11 +307,13 @@ section p {
 
 .project-content h3 {
     font-size: 1.3rem;
-    color: rgba(52, 121, 247, 1);
+    color: #000000;
     margin-bottom: 10px;
 }
 
-.project-content p {
+.project-content p,
+.project-content p2 {
+    display: block;
     font-size: 1.2rem;
     color: #000000;
     padding-bottom: 15px;
